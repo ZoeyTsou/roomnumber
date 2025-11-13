@@ -1,0 +1,994 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <title>room number</title>
+    
+
+  </head>
+    
+  <body>
+  <!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>11/14 涵碧樓房號公布表</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: "Microsoft JhengHei", "PingFang TC", sans-serif; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 20px; min-height: 100vh; }
+        .container { max-width: 1400px; margin: 0 auto; background: white; border-radius: 15px; box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2); overflow: hidden; }
+        .header { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 30px; text-align: center; }
+        .header h1 { font-size: 2.5em; margin-bottom: 10px; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); }
+        .header p { font-size: 1.2em; opacity: 0.95; }
+        .search-box { padding: 20px 30px; background: #f8f9fa; border-bottom: 2px solid #e9ecef; }
+        .search-input { width: 100%; padding: 12px 20px; font-size: 16px; border: 2px solid #ddd; border-radius: 25px; outline: none; transition: all 0.3s; }
+        .search-input:focus { border-color: #667eea; box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1); }
+        .table-container { overflow-x: auto; padding: 30px; }
+        table { width: 100%; border-collapse: collapse; font-size: 14px; }
+        thead { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; position: sticky; top: 0; z-index: 10; }
+        th { padding: 15px 10px; text-align: left; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; font-size: 13px; }
+        tbody tr { border-bottom: 1px solid #e9ecef; transition: all 0.2s; }
+        tbody tr:hover { background: #f8f9fa; transform: scale(1.01); box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); }
+        td { padding: 12px 10px; vertical-align: top; }
+        .no-data { color: #999; font-style: italic; }
+        .room-number { font-weight: 600; color: #667eea; font-size: 16px; }
+        .room-type { color: #666; font-size: 12px; line-height: 1.4; white-space: pre-line; }
+        .special-meal { display: inline-block; padding: 3px 10px; background: #fff3cd; color: #856404; border-radius: 12px; font-size: 12px; font-weight: 500; }
+        .note { color: #e83e8c; font-size: 12px; font-weight: 500; white-space: pre-line; }
+        .name-cell { font-weight: 600; }
+        .chinese-name-note { color: #999; font-size: 11px; display: block; font-weight: normal; margin-top: 2px; }
+        .stats { padding: 20px 30px; background: #f8f9fa; border-top: 2px solid #e9ecef; display: flex; gap: 30px; flex-wrap: wrap; }
+        .stat-item { flex: 1; min-width: 200px; padding: 15px; background: white; border-radius: 10px; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); }
+        .stat-item h3 { font-size: 14px; color: #666; margin-bottom: 5px; }
+        .stat-item .number { font-size: 28px; font-weight: 700; color: #667eea; }
+        .hidden { display: none; }
+        @media (max-width: 768px) { .header h1 { font-size: 1.8em; } table { font-size: 12px; } th, td { padding: 8px 5px; } .stats { flex-direction: column; } }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>涵碧樓房號公布表</h1>
+            <p>2025年11月14日 Sun Moon Lake Trip</p>
+        </div>
+        <div class="search-box">
+            <input type="text" class="search-input" id="searchInput" placeholder="搜尋姓名、房號、備註...">
+        </div>
+        <div class="table-container">
+            <table id="roomTable">
+                <thead>
+                    <tr>
+                        <th style="width: 50px;">編號</th>
+                        <th style="width: 150px;">姓名</th>
+                        <th style="width: 150px;">房號</th>
+                        <th style="width: 200px;">分房</th>
+                        <th style="width: 120px;">特殊餐食</th>
+                        <th style="width: 150px;">備註</th>
+                    </tr>
+                </thead>
+                <tbody id="tableBody">
+                    <!-- 以下為完整 106 筆資料 -->
+                    <tr style="background-color: #a8d5f2;">
+                        <td>1</td>
+                        <td class="name-cell">Jason<span class="chinese-name-note">吳建陞</span></td>
+                        <td><span class="room-number">2306</span></td>
+                        <td><span class="room-type">2-3樓湖畔套房(單房)<br>2人房/25坪</span></td>
+                        <td><span class="no-data">無</span></td>
+                        <td><span class="note">兩床</span></td>
+                    </tr>
+                    <tr style="background-color: #a8d5f2;">
+                        <td>2</td>
+                        <td class="name-cell">Dean<span class="chinese-name-note">鄭偉揚</span></td>
+                        <td><span class="room-number">-</span></td>
+                        <td><span class="room-type">-</span></td>
+                        <td><span class="no-data">無</span></td>
+                        <td><span class="no-data">-</span></td>
+                    </tr>
+                    <tr style="background-color: #b3e0dc;">
+                        <td>3</td>
+                        <td class="name-cell">Aki<span class="chinese-name-note">賴岳秋</span></td>
+                        <td><span class="room-number">1315</span></td>
+                        <td><span class="room-type">2-3樓湖畔套房(單房)<br>2人房/25坪</span></td>
+                        <td><span class="no-data">無</span></td>
+                        <td><span class="note">兩床</span></td>
+                    </tr>
+                    <tr style="background-color: #b3e0dc;">
+                        <td>4</td>
+                        <td class="name-cell">Ku<span class="chinese-name-note">鍾可掬</span></td>
+                        <td><span class="room-number">-</span></td>
+                        <td><span class="room-type">-</span></td>
+                        <td><span class="no-data">無</span></td>
+                        <td><span class="no-data">-</span></td>
+                    </tr>
+                    <tr style="background-color: #b3e0dc;">
+                        <td>5</td>
+                        <td class="name-cell">孫昊謙</td>
+                        <td><span class="room-number">-</span></td>
+                        <td><span class="room-type">-</span></td>
+                        <td><span class="no-data">無</span></td>
+                        <td><span class="no-data">-</span></td>
+                    </tr>
+                    <tr style="background-color: #c7f9cc;">
+                        <td>6</td>
+                        <td class="name-cell">Shane<span class="chinese-name-note">王君翔</span></td>
+                        <td><span class="room-number">1309</span></td>
+                        <td><span class="room-type">2-3樓湖畔套房(單房)<br>2人房/25坪</span></td>
+                        <td><span class="no-data">無</span></td>
+                        <td><span class="note">兩床</span></td>
+                    </tr>
+                    <tr style="background-color: #c7f9cc;">
+                        <td>7</td>
+                        <td class="name-cell">Feniix<span class="chinese-name-note">陳柏豪</span></td>
+                        <td><span class="room-number">-</span></td>
+                        <td><span class="room-type">-</span></td>
+                        <td><span class="no-data">無</span></td>
+                        <td><span class="no-data">-</span></td>
+                    </tr>
+                    <tr style="background-color: #ffe0a3;">
+                        <td>8</td>
+                        <td class="name-cell">Luke<span class="chinese-name-note">謝恒光</span></td>
+                        <td><span class="room-number">1301</span></td>
+                        <td><span class="room-type">2-3樓湖畔套房(單房)<br>2人房/25坪</span></td>
+                        <td><span class="no-data">無</span></td>
+                        <td><span class="note">兩床</span></td>
+                    </tr>
+                    <tr style="background-color: #ffe0a3;">
+                        <td>9</td>
+                        <td class="name-cell">Brain<span class="chinese-name-note">楊孟昇</span></td>
+                        <td><span class="room-number">-</span></td>
+                        <td><span class="room-type">-</span></td>
+                        <td><span class="special-meal">不吃牛</span></td>
+                        <td><span class="no-data">-</span></td>
+                    </tr>
+                    <tr style="background-color: #ffbcbd;">
+                        <td>10</td>
+                        <td class="name-cell">Jimmy<span class="chinese-name-note">林以騰</span></td>
+                        <td><span class="room-number">2506</span></td>
+                        <td><span class="room-type">5-7樓湖景套房(單房)<br>2人房/25坪</span></td>
+                        <td><span class="no-data">無</span></td>
+                        <td><span class="note">兩床</span></td>
+                    </tr>
+                    <tr style="background-color: #ffbcbd;">
+                        <td>11</td>
+                        <td class="name-cell">陳睿寬</td>
+                        <td><span class="room-number">-</span></td>
+                        <td><span class="room-type">-</span></td>
+                        <td><span class="no-data">無</span></td>
+                        <td><span class="no-data">-</span></td>
+                    </tr>
+                    <tr style="background-color: #d4a5f7;">
+                        <td>12</td>
+                        <td class="name-cell">Gary<span class="chinese-name-note">陳祈任</span></td>
+                        <td><span class="room-number">1215</span></td>
+                        <td><span class="room-type">2-3樓湖畔套房(單房)<br>2人房/25坪</span></td>
+                        <td><span class="no-data">無</span></td>
+                        <td><span class="note">兩床</span></td>
+                    </tr>
+                    <tr style="background-color: #d4a5f7;">
+                        <td>13</td>
+                        <td class="name-cell">Andy<span class="chinese-name-note">陳柏均</span></td>
+                        <td><span class="room-number">-</span></td>
+                        <td><span class="room-type">-</span></td>
+                        <td><span class="special-meal">不吃牛</span></td>
+                        <td><span class="no-data">-</span></td>
+                    </tr>
+                    <tr style="background-color: #d4a5f7;">
+                        <td>14</td>
+                        <td class="name-cell">顏序安</td>
+                        <td><span class="room-number">-</span></td>
+                        <td><span class="room-type">-</span></td>
+                        <td><span class="no-data">無</span></td>
+                        <td><span class="no-data">-</span></td>
+                    </tr>
+                    <tr style="background-color: #ffd3b6;">
+                        <td>15</td>
+                        <td class="name-cell">Jamie<span class="chinese-name-note">梅祖恩</span></td>
+                        <td><span class="room-number">1209</span></td>
+                        <td><span class="room-type">2-3樓湖畔套房(單房)<br>2人房/25坪</span></td>
+                        <td><span class="no-data">無</span></td>
+                        <td><span class="note">兩床</span></td>
+                    </tr>
+                    <tr style="background-color: #ffd3b6;">
+                        <td>16</td>
+                        <td class="name-cell">Johnny<span class="chinese-name-note">王顓頊</span></td>
+                        <td><span class="room-number">-</span></td>
+                        <td><span class="room-type">-</span></td>
+                        <td><span class="no-data">無</span></td>
+                        <td><span class="no-data">-</span></td>
+                    </tr>
+                    <tr style="background-color: #c8e6c9;">
+                        <td>17</td>
+                        <td class="name-cell">Sherry<span class="chinese-name-note">鄭竹君</span></td>
+                        <td><span class="room-number">1208</span></td>
+                        <td><span class="room-type">2-3樓湖畔套房(單房)<br>2人房/25坪</span></td>
+                        <td><span class="no-data">無</span></td>
+                        <td><span class="note">兩床</span></td>
+                    </tr>
+                    <tr style="background-color: #c8e6c9;">
+                        <td>18</td>
+                        <td class="name-cell">黃翊恩</td>
+                        <td><span class="room-number">-</span></td>
+                        <td><span class="room-type">-</span></td>
+                        <td><span class="no-data">無</span></td>
+                        <td><span class="note">消毒鍋、嬰兒床</span></td>
+                    </tr>
+                    <tr style="background-color: #c8e6c9;">
+                        <td>19</td>
+                        <td class="name-cell">Lany<span class="chinese-name-note">顏君卉</span></td>
+                        <td><span class="room-number">-</span></td>
+                        <td><span class="room-type">-</span></td>
+                        <td><span class="no-data">無</span></td>
+                        <td><span class="no-data">-</span></td>
+                    </tr>
+                    <tr style="background-color: #ffcdd2;">
+                        <td>20</td>
+                        <td class="name-cell">Kuma<span class="chinese-name-note">郭峻宇</span></td>
+                        <td><span class="room-number">1201</span></td>
+                        <td><span class="room-type">2-3樓湖畔套房(單房)<br>2人房/25坪</span></td>
+                        <td><span class="no-data">無</span></td>
+                        <td><span class="note">兩床</span></td>
+                    </tr>
+                    <tr style="background-color: #ffcdd2;">
+                        <td>21</td>
+                        <td class="name-cell">Kenny<span class="chinese-name-note">田明彥</span></td>
+                        <td><span class="room-number">-</span></td>
+                        <td><span class="room-type">-</span></td>
+                        <td><span class="no-data">無</span></td>
+                        <td><span class="no-data">-</span></td>
+                    </tr>
+                    <tr style="background-color: #e1bee7;">
+                        <td>22</td>
+                        <td class="name-cell">Charlie<span class="chinese-name-note">鄭泰銘</span></td>
+                        <td><span class="room-number">1108<br>這間衛浴配合法規有加裝扶手</span></td>
+                        <td><span class="room-type">1樓庭園客房<br>限住2人/12坪</span></td>
+                        <td><span class="no-data">無</span></td>
+                        <td><span class="note">一大床<br>單人住</span></td>
+                    </tr>
+                    <tr style="background-color: #a8d5f2;">
+                        <td>23</td>
+                        <td class="name-cell">Joan<span class="chinese-name-note">夏萱</span></td>
+                        <td><span class="room-number">1113</span></td>
+                        <td><span class="room-type">1樓庭園客房<br>限住2人/12坪</span></td>
+                        <td><span class="no-data">無</span></td>
+                        <td><span class="note">一大床<br>單人住</span></td>
+                    </tr>
+                    <tr style="background-color: #b3e0dc;">
+                        <td>24</td>
+                        <td class="name-cell">Calvin<span class="chinese-name-note">陳翊煊</span></td>
+                        <td><span class="room-number">1305</span></td>
+                        <td><span class="room-type">2-3樓湖畔客房<br>限住2人/12坪</span></td>
+                        <td><span class="no-data">無</span></td>
+                        <td><span class="note">兩小床<br>單人住</span></td>
+                    </tr>
+                    <tr style="background-color: #c7f9cc;">
+                        <td>25</td>
+                        <td class="name-cell">York<span class="chinese-name-note">王又新</span></td>
+                        <td><span class="room-number">1105</span></td>
+                        <td><span class="room-type">1樓庭園客房<br>限住2人/12坪</span></td>
+                        <td><span class="no-data">無</span></td>
+                        <td><span class="note">一大床<br>單人住</span></td>
+                    </tr>
+                    <tr style="background-color: #ffe0a3;">
+                        <td>26</td>
+                        <td class="name-cell">Irene<span class="chinese-name-note">蕭仲君</span></td>
+                        <td><span class="room-number">1102</span></td>
+                        <td><span class="room-type">1樓庭園客房<br>限住2人/12坪</span></td>
+                        <td><span class="no-data">無</span></td>
+                        <td><span class="note">一大床</span></td>
+                    </tr>
+                    <tr style="background-color: #ffe0a3;">
+                        <td>27</td>
+                        <td class="name-cell">林星潼</td>
+                        <td><span class="room-number">-</span></td>
+                        <td><span class="room-type">-</span></td>
+                        <td><span class="no-data">無</span></td>
+                        <td><span class="note">澡盆/消毒鍋</span></td>
+                    </tr>
+                    <tr style="background-color: #ffbcbd;">
+                        <td>28</td>
+                        <td class="name-cell">Tim<span class="chinese-name-note">許劭廷</span></td>
+                        <td><span class="room-number">1101</span></td>
+                        <td><span class="room-type">1樓庭園客房<br>限住2人/12坪</span></td>
+                        <td><span class="no-data">無</span></td>
+                        <td><span class="note">一大床<br>單人住</span></td>
+                    </tr>
+                    <tr style="background-color: #d4a5f7;">
+                        <td>29</td>
+                        <td class="name-cell">按摩老師<span class="chinese-name-note">孫婉融</span></td>
+                        <td><span class="room-number">1111</span></td>
+                        <td><span class="room-type">1樓庭園客房<br>限住2人/12坪</span></td>
+                        <td><span class="no-data">無</span></td>
+                        <td><span class="note">兩床</span></td>
+                    </tr>
+                    <tr style="background-color: #d4a5f7;">
+                        <td>30</td>
+                        <td class="name-cell">涂翊萱</td>
+                        <td><span class="room-number">-</span></td>
+                        <td><span class="room-type">-</span></td>
+                        <td><span class="no-data">無</span></td>
+                        <td><span class="no-data">-</span></td>
+                    </tr>
+                    <tr style="background-color: #ffd3b6;">
+                        <td>31</td>
+                        <td class="name-cell">Lizzie<span class="chinese-name-note">許雅嵐</span></td>
+                        <td><span class="room-number">1210</span></td>
+                        <td><span class="room-type">2-3樓湖畔客房<br>限住2人/12坪</span></td>
+                        <td><span class="special-meal">不吃海鮮</span></td>
+                        <td><span class="note">兩床</span></td>
+                    </tr>
+                    <tr style="background-color: #ffd3b6;">
+                        <td>32</td>
+                        <td class="name-cell">潘芊卉</td>
+                        <td><span class="room-number">-</span></td>
+                        <td><span class="room-type">-</span></td>
+                        <td><span class="no-data">無</span></td>
+                        <td><span class="no-data">-</span></td>
+                    </tr>
+                    <tr style="background-color: #c8e6c9;">
+                        <td>33</td>
+                        <td class="name-cell">Zoey<span class="chinese-name-note">鄒亞璿</span></td>
+                        <td><span class="room-number">1313</span></td>
+                        <td><span class="room-type">2-3樓湖畔套房(單房)<br>2人房/25坪</span></td>
+                        <td><span class="no-data">無</span></td>
+                        <td><span class="note">一大床</span></td>
+                    </tr>
+                    <tr style="background-color: #c8e6c9;">
+                        <td>34</td>
+                        <td class="name-cell">王映捷</td>
+                        <td><span class="room-number">-</span></td>
+                        <td><span class="room-type">-</span></td>
+                        <td><span class="no-data">無</span></td>
+                        <td><span class="no-data">-</span></td>
+                    </tr>
+                    <tr style="background-color: #c8e6c9;">
+                        <td>35</td>
+                        <td class="name-cell">賴秐喬</td>
+                        <td><span class="room-number">-</span></td>
+                        <td><span class="room-type">-</span></td>
+                        <td><span class="no-data">無</span></td>
+                        <td><span class="no-data">-</span></td>
+                    </tr>
+                    <tr style="background-color: #ffcdd2;">
+                        <td>36</td>
+                        <td class="name-cell">Kehao<span class="chinese-name-note">張克豪</span></td>
+                        <td><span class="room-number">1610</span></td>
+                        <td><span class="room-type">5-7樓湖景客房<br>限住2人/12坪</span></td>
+                        <td><span class="no-data">無</span></td>
+                        <td><span class="note">一大床</span></td>
+                    </tr>
+                    <tr style="background-color: #ffcdd2;">
+                        <td>37</td>
+                        <td class="name-cell">黃逸文</td>
+                        <td><span class="room-number">-</span></td>
+                        <td><span class="room-type">-</span></td>
+                        <td><span class="no-data">無</span></td>
+                        <td><span class="no-data">-</span></td>
+                    </tr>
+                    <tr style="background-color: #e1bee7;">
+                        <td>38</td>
+                        <td class="name-cell">Sandra<span class="chinese-name-note">陳映如</span></td>
+                        <td><span class="room-number">1308</span></td>
+                        <td><span class="room-type">2-3樓湖畔套房(單房)<br>2人房/25坪</span></td>
+                        <td><span class="no-data">無</span></td>
+                        <td><span class="note">一大床</span></td>
+                    </tr>
+                    <tr style="background-color: #e1bee7;">
+                        <td>39</td>
+                        <td class="name-cell">岳孝權</td>
+                        <td><span class="room-number">-</span></td>
+                        <td><span class="room-type">-</span></td>
+                        <td><span class="no-data">無</span></td>
+                        <td><span class="no-data">-</span></td>
+                    </tr>
+                    <tr style="background-color: #e1bee7;">
+                        <td>40</td>
+                        <td class="name-cell">詹又澄</td>
+                        <td><span class="room-number">-</span></td>
+                        <td><span class="room-type">-</span></td>
+                        <td><span class="no-data">無</span></td>
+                        <td><span class="no-data">-</span></td>
+                    </tr>
+                    <tr style="background-color: #a8d5f2;">
+                        <td>41</td>
+                        <td class="name-cell">Debbie<span class="chinese-name-note">諶蕙娣</span></td>
+                        <td><span class="room-number">1710</span></td>
+                        <td><span class="room-type">5-7樓湖景客房<br>限住2人/12坪</span></td>
+                        <td><span class="no-data">無</span></td>
+                        <td><span class="note">一大床</span></td>
+                    </tr>
+                    <tr style="background-color: #a8d5f2;">
+                        <td>42</td>
+                        <td class="name-cell">龔長偉</td>
+                        <td><span class="room-number">-</span></td>
+                        <td><span class="room-type">-</span></td>
+                        <td><span class="no-data">無</span></td>
+                        <td><span class="no-data">-</span></td>
+                    </tr>
+                    <tr style="background-color: #b3e0dc;">
+                        <td>43</td>
+                        <td class="name-cell">Paul Lin<span class="chinese-name-note">林保威</span></td>
+                        <td><span class="room-number">2507</span></td>
+                        <td><span class="room-type">5-7樓湖景套房(單房)<br>2人房/25坪</span></td>
+                        <td><span class="no-data">無</span></td>
+                        <td><span class="note">一大床</span></td>
+                    </tr>
+                    <tr style="background-color: #b3e0dc;">
+                        <td>44</td>
+                        <td class="name-cell">曾郁婷</td>
+                        <td><span class="room-number">-</span></td>
+                        <td><span class="room-type">-</span></td>
+                        <td><span class="no-data">無</span></td>
+                        <td><span class="no-data">-</span></td>
+                    </tr>
+                    <tr style="background-color: #c7f9cc;">
+                        <td>45</td>
+                        <td class="name-cell">Jackson<span class="chinese-name-note">余維哲</span></td>
+                        <td><span class="room-number">1213</span></td>
+                        <td><span class="room-type">2-3樓湖畔套房(單房)<br>2人房/25坪</span></td>
+                        <td><span class="no-data">無</span></td>
+                        <td><span class="note">一大床</span></td>
+                    </tr>
+                    <tr style="background-color: #c7f9cc;">
+                        <td>46</td>
+                        <td class="name-cell">李玫璇</td>
+                        <td><span class="room-number">-</span></td>
+                        <td><span class="room-type">-</span></td>
+                        <td><span class="no-data">無</span></td>
+                        <td><span class="note">加被</span></td>
+                    </tr>
+                    <tr style="background-color: #c7f9cc;">
+                        <td>47</td>
+                        <td class="name-cell">孫昊妤</td>
+                        <td><span class="room-number">-</span></td>
+                        <td><span class="room-type">-</span></td>
+                        <td><span class="no-data">無</span></td>
+                        <td><span class="no-data">-</span></td>
+                    </tr>
+                    <tr style="background-color: #ffe0a3;">
+                        <td>48</td>
+                        <td class="name-cell">Steven<span class="chinese-name-note">趙子帆</span></td>
+                        <td><span class="room-number">1211</span></td>
+                        <td><span class="room-type">2-3樓湖畔套房(單房)<br>2人房/25坪</span></td>
+                        <td><span class="no-data">無</span></td>
+                        <td><span class="note">一大床</span></td>
+                    </tr>
+                    <tr style="background-color: #ffe0a3;">
+                        <td>49</td>
+                        <td class="name-cell">呂亞倢</td>
+                        <td><span class="room-number">-</span></td>
+                        <td><span class="room-type">-</span></td>
+                        <td><span class="no-data">無</span></td>
+                        <td><span class="no-data">-</span></td>
+                    </tr>
+                    <tr style="background-color: #ffe0a3;">
+                        <td>50</td>
+                        <td class="name-cell">曾韵霏</td>
+                        <td><span class="room-number">-</span></td>
+                        <td><span class="room-type">-</span></td>
+                        <td><span class="special-meal">不吃牛</span></td>
+                        <td><span class="no-data">-</span></td>
+                    </tr>
+                    <tr style="background-color: #ffbcbd;">
+                        <td>51</td>
+                        <td class="name-cell">Lin<span class="chinese-name-note">陳妍伶</span></td>
+                        <td><span class="room-number">1312</span></td>
+                        <td><span class="room-type">2-3樓湖畔客房<br>限住2人/12坪</span></td>
+                        <td><span class="special-meal">不吃豬</span></td>
+                        <td><span class="note">一大床</span></td>
+                    </tr>
+                    <tr style="background-color: #ffbcbd;">
+                        <td>52</td>
+                        <td class="name-cell">李柏憲</td>
+                        <td><span class="room-number">-</span></td>
+                        <td><span class="room-type">-</span></td>
+                        <td><span class="no-data">無</span></td>
+                        <td><span class="no-data">-</span></td>
+                    </tr>
+                    <tr style="background-color: #d4a5f7;">
+                        <td>53</td>
+                        <td class="name-cell">Ken<span class="chinese-name-note">劉坤星</span></td>
+                        <td><span class="room-number">1510</span></td>
+                        <td><span class="room-type">5-7樓湖景客房<br>限住2人/12坪</span></td>
+                        <td><span class="no-data">無</span></td>
+                        <td><span class="note">兩床</span></td>
+                    </tr>
+                    <tr style="background-color: #d4a5f7;">
+                        <td>54</td>
+                        <td class="name-cell">施振祥</td>
+                        <td><span class="room-number">-</span></td>
+                        <td><span class="room-type">-</span></td>
+                        <td><span class="no-data">無</span></td>
+                        <td><span class="no-data">-</span></td>
+                    </tr>
+                    <tr style="background-color: #ffd3b6;">
+                        <td>55</td>
+                        <td class="name-cell">Neeko<span class="chinese-name-note">李可薇</span></td>
+                        <td><span class="room-number">1302</span></td>
+                        <td><span class="room-type">2-3樓湖畔客房<br>限住2人/12坪</span></td>
+                        <td><span class="no-data">無</span></td>
+                        <td><span class="note">一大床</span></td>
+                    </tr>
+                    <tr style="background-color: #ffd3b6;">
+                        <td>56</td>
+                        <td class="name-cell">謝宜謙</td>
+                        <td><span class="room-number">-</span></td>
+                        <td><span class="room-type">-</span></td>
+                        <td><span class="no-data">無</span></td>
+                        <td><span class="no-data">-</span></td>
+                    </tr>
+                    <tr style="background-color: #c8e6c9;">
+                        <td>57</td>
+                        <td class="name-cell">Fabiola<span class="chinese-name-note">洪筠棠</span></td>
+                        <td><span class="room-number">1505</span></td>
+                        <td><span class="room-type">5-7樓湖景客房<br>限住2人/12坪</span></td>
+                        <td><span class="no-data">無</span></td>
+                        <td><span class="note">兩床</span></td>
+                    </tr>
+                    <tr style="background-color: #c8e6c9;">
+                        <td>58</td>
+                        <td class="name-cell">廖偉翔</td>
+                        <td><span class="room-number">-</span></td>
+                        <td><span class="room-type">-</span></td>
+                        <td><span class="no-data">無</span></td>
+                        <td><span class="no-data">-</span></td>
+                    </tr>
+                    <tr style="background-color: #ffcdd2;">
+                        <td>59</td>
+                        <td class="name-cell">Linda<span class="chinese-name-note">陳芝霖</span></td>
+                        <td><span class="room-number">1207</span></td>
+                        <td><span class="room-type">2-3樓湖畔套房(單房)<br>2人房/25坪</span></td>
+                        <td><span class="no-data">無</span></td>
+                        <td><span class="note">一大床</span></td>
+                    </tr>
+                    <tr style="background-color: #ffcdd2;">
+                        <td>60</td>
+                        <td class="name-cell">周紘毅</td>
+                        <td><span class="room-number">-</span></td>
+                        <td><span class="room-type">-</span></td>
+                        <td><span class="no-data">無</span></td>
+                        <td><span class="note">加被</span></td>
+                    </tr>
+                    <tr style="background-color: #ffcdd2;">
+                        <td>61</td>
+                        <td class="name-cell">周軒呈</td>
+                        <td><span class="room-number">-</span></td>
+                        <td><span class="room-type">-</span></td>
+                        <td><span class="no-data">無</span></td>
+                        <td><span class="no-data">-</span></td>
+                    </tr>
+                    <tr style="background-color: #e1bee7;">
+                        <td>62</td>
+                        <td class="name-cell">Laura<span class="chinese-name-note">游雅琳</span></td>
+                        <td><span class="room-number">1206</span></td>
+                        <td><span class="room-type">2-3樓湖畔套房(單房)<br>2人房/25坪</span></td>
+                        <td><span class="no-data">無</span></td>
+                        <td><span class="note">一大床</span></td>
+                    </tr>
+                    <tr style="background-color: #e1bee7;">
+                        <td>63</td>
+                        <td class="name-cell">劉彥志</td>
+                        <td><span class="room-number">-</span></td>
+                        <td><span class="room-type">-</span></td>
+                        <td><span class="no-data">無</span></td>
+                        <td><span class="note">嬰兒床</span></td>
+                    </tr>
+                    <tr style="background-color: #e1bee7;">
+                        <td>64</td>
+                        <td class="name-cell">劉昀熙</td>
+                        <td><span class="room-number">-</span></td>
+                        <td><span class="room-type">-</span></td>
+                        <td><span class="no-data">無</span></td>
+                        <td><span class="note">床圍,消毒鍋.兒澡盆</span></td>
+                    </tr>
+                    <tr style="background-color: #a8d5f2;">
+                        <td>65</td>
+                        <td class="name-cell">Wing<span class="chinese-name-note">鍾雲雯</span></td>
+                        <td><span class="room-number">1115</span></td>
+                        <td><span class="room-type">1樓庭園套房(單房)<br>2人房/25坪</span></td>
+                        <td><span class="no-data">無</span></td>
+                        <td><span class="no-data">-</span></td>
+                    </tr>
+                    <tr style="background-color: #a8d5f2;">
+                        <td>66</td>
+                        <td class="name-cell">顧乃容</td>
+                        <td><span class="room-number">-</span></td>
+                        <td><span class="room-type">-</span></td>
+                        <td><span class="no-data">無</span></td>
+                        <td><span class="no-data">-</span></td>
+                    </tr>
+                    <tr style="background-color: #a8d5f2;">
+                        <td>67</td>
+                        <td class="name-cell">顧子祺</td>
+                        <td><span class="room-number">-</span></td>
+                        <td><span class="room-type">-</span></td>
+                        <td><span class="no-data">無</span></td>
+                        <td><span class="note">嬰兒床/澡盆/消毒鍋</span></td>
+                    </tr>
+                    <tr style="background-color: #b3e0dc;">
+                        <td>68</td>
+                        <td class="name-cell">Eric Tseng<span class="chinese-name-note">曾思源</span></td>
+                        <td><span class="room-number">1203</span></td>
+                        <td><span class="room-type">2-3樓湖畔套房(單房)<br>2人房/25坪</span></td>
+                        <td><span class="no-data">無</span></td>
+                        <td><span class="note">一大床</span></td>
+                    </tr>
+                    <tr style="background-color: #b3e0dc;">
+                        <td>69</td>
+                        <td class="name-cell">李怡臻</td>
+                        <td><span class="room-number">-</span></td>
+                        <td><span class="room-type">-</span></td>
+                        <td><span class="special-meal">不吃牛</span></td>
+                        <td><span class="note">加被</span></td>
+                    </tr>
+                    <tr style="background-color: #b3e0dc;">
+                        <td>70</td>
+                        <td class="name-cell">曾煥錡</td>
+                        <td><span class="room-number">-</span></td>
+                        <td><span class="room-type">-</span></td>
+                        <td><span class="special-meal">不吃牛</span></td>
+                        <td><span class="no-data">-</span></td>
+                    </tr>
+                    <tr style="background-color: #c7f9cc;">
+                        <td>71</td>
+                        <td class="name-cell">Boyu<span class="chinese-name-note">陳柏羽</span></td>
+                        <td><span class="room-number">1212</span></td>
+                        <td><span class="room-type">2-3樓湖畔客房<br>限住2人/12坪</span></td>
+                        <td><span class="no-data">無</span></td>
+                        <td><span class="note">一大床</span></td>
+                    </tr>
+                    <tr style="background-color: #c7f9cc;">
+                        <td>72</td>
+                        <td class="name-cell">杜思慧</td>
+                        <td><span class="room-number">-</span></td>
+                        <td><span class="room-type">-</span></td>
+                        <td><span class="no-data">無</span></td>
+                        <td><span class="no-data">-</span></td>
+                    </tr>
+                    <tr style="background-color: #ffe0a3;">
+                        <td>73</td>
+                        <td class="name-cell">Eric Kao<span class="chinese-name-note">高健祐</span></td>
+                        <td><span class="room-number">2305</span></td>
+                        <td><span class="room-type">2-3樓湖畔套房(單房)<br>2人房/25坪</span></td>
+                        <td><span class="no-data">無</span></td>
+                        <td><span class="note">澡盆/消毒鍋</span></td>
+                    </tr>
+                    <tr style="background-color: #ffe0a3;">
+                        <td>74</td>
+                        <td class="name-cell">王筱媛</td>
+                        <td><span class="room-number">-</span></td>
+                        <td><span class="room-type">-</span></td>
+                        <td><span class="no-data">無</span></td>
+                        <td><span class="note">一大床</span></td>
+                    </tr>
+                    <tr style="background-color: #ffe0a3;">
+                        <td>75</td>
+                        <td class="name-cell">高裕軒</td>
+                        <td><span class="room-number">-</span></td>
+                        <td><span class="room-type">-</span></td>
+                        <td><span class="no-data">無</span></td>
+                        <td><span class="note">加被</span></td>
+                    </tr>
+                    <tr style="background-color: #ffbcbd;">
+                        <td>76</td>
+                        <td class="name-cell">Sean Huang<span class="chinese-name-note">黃聞祥</span></td>
+                        <td><span class="room-number">1112</span></td>
+                        <td><span class="room-type">1樓庭園套房(單房)<br>2人房/25坪</span></td>
+                        <td><span class="no-data">無</span></td>
+                        <td><span class="note">一大床</span></td>
+                    </tr>
+                    <tr style="background-color: #ffbcbd;">
+                        <td>77</td>
+                        <td class="name-cell">黃士晴</td>
+                        <td><span class="room-number">-</span></td>
+                        <td><span class="room-type">-</span></td>
+                        <td><span class="no-data">無</span></td>
+                        <td><span class="note">原需求嬰兒床，改成提供：澡盆/床圍</span></td>
+                    </tr>
+                    <tr style="background-color: #d4a5f7;">
+                        <td>78</td>
+                        <td class="name-cell">Kevin Lai<span class="chinese-name-note">賴又瑜</span></td>
+                        <td><span class="room-number">1612</span></td>
+                        <td><span class="room-type">5-7樓湖景客房<br>限住2人/12坪</span></td>
+                        <td><span class="no-data">無</span></td>
+                        <td><span class="note">一大床</span></td>
+                    </tr>
+                    <tr style="background-color: #d4a5f7;">
+                        <td>79</td>
+                        <td class="name-cell">陸虹卉</td>
+                        <td><span class="room-number">-</span></td>
+                        <td><span class="room-type">-</span></td>
+                        <td><span class="no-data">無</span></td>
+                        <td><span class="no-data">-</span></td>
+                    </tr>
+                    <tr style="background-color: #ffd3b6;">
+                        <td>80</td>
+                        <td class="name-cell">Jeffrey<span class="chinese-name-note">陳德沛</span></td>
+                        <td><span class="room-number">1110(25坪)<br>1109(12坪)</span></td>
+                        <td><span class="room-type">1樓庭園套房(雙房)<br>4人房/25+12坪</span></td>
+                        <td><span class="no-data">無</span></td>
+                        <td><span class="note">一大床+兩小床</span></td>
+                    </tr>
+                    <tr style="background-color: #ffd3b6;">
+                        <td>81</td>
+                        <td class="name-cell">李狄蓁</td>
+                        <td><span class="room-number">-</span></td>
+                        <td><span class="room-type">-</span></td>
+                        <td><span class="no-data">無</span></td>
+                        <td><span class="no-data">-</span></td>
+                    </tr>
+                    <tr style="background-color: #ffd3b6;">
+                        <td>82</td>
+                        <td class="name-cell">陳詩允</td>
+                        <td><span class="room-number">-</span></td>
+                        <td><span class="room-type">-</span></td>
+                        <td><span class="no-data">無</span></td>
+                        <td><span class="no-data">-</span></td>
+                    </tr>
+                    <tr style="background-color: #ffd3b6;">
+                        <td>83</td>
+                        <td class="name-cell">陳詩文</td>
+                        <td><span class="room-number">-</span></td>
+                        <td><span class="room-type">-</span></td>
+                        <td><span class="no-data">無</span></td>
+                        <td><span class="no-data">-</span></td>
+                    </tr>
+                    <tr style="background-color: #ffd3b6;">
+                        <td>84</td>
+                        <td class="name-cell">陳詩元</td>
+                        <td><span class="room-number">-</span></td>
+                        <td><span class="room-type">-</span></td>
+                        <td><span class="no-data">無</span></td>
+                        <td><span class="no-data">-</span></td>
+                    </tr>
+                    <tr style="background-color: #c8e6c9;">
+                        <td>85</td>
+                        <td class="name-cell">Sidney<span class="chinese-name-note">陳卉慈</span></td>
+                        <td><span class="room-number">1513</span></td>
+                        <td><span class="room-type">5-7樓湖景套房(單房)<br>2人房/25坪</span></td>
+                        <td><span class="no-data">無</span></td>
+                        <td><span class="note">一大床</span></td>
+                    </tr>
+                    <tr style="background-color: #c8e6c9;">
+                        <td>86</td>
+                        <td class="name-cell">孫至臻</td>
+                        <td><span class="room-number">-</span></td>
+                        <td><span class="room-type">-</span></td>
+                        <td><span class="no-data">無</span></td>
+                        <td><span class="note">原需求嬰兒床</span></td>
+                    </tr>
+                    <tr style="background-color: #c8e6c9;">
+                        <td>87</td>
+                        <td class="name-cell">陳昊澤</td>
+                        <td><span class="room-number">-</span></td>
+                        <td><span class="room-type">-</span></td>
+                        <td><span class="no-data">無</span></td>
+                        <td><span class="note">加被</span></td>
+                    </tr>
+                    <tr style="background-color: #ffcdd2;">
+                        <td>88</td>
+                        <td class="name-cell">Alice<span class="chinese-name-note">陳彥如</span></td>
+                        <td><span class="room-number">2303</span></td>
+                        <td><span class="room-type">2-3樓湖畔套房(單房)<br>2人房/25坪</span></td>
+                        <td><span class="no-data">無</span></td>
+                        <td><span class="note">一大床</span></td>
+                    </tr>
+                    <tr style="background-color: #ffcdd2;">
+                        <td>89</td>
+                        <td class="name-cell">簡玉英</td>
+                        <td><span class="room-number">-</span></td>
+                        <td><span class="room-type">-</span></td>
+                        <td><span class="no-data">無</span></td>
+                        <td><span class="no-data">-</span></td>
+                    </tr>
+                    <tr style="background-color: #ffcdd2;">
+                        <td>90</td>
+                        <td class="name-cell">黃語芃</td>
+                        <td><span class="room-number">-</span></td>
+                        <td><span class="room-type">-</span></td>
+                        <td><span class="no-data">無</span></td>
+                        <td><span class="no-data">-</span></td>
+                    </tr>
+                    <tr style="background-color: #e1bee7;">
+                        <td>91</td>
+                        <td class="name-cell">Eric Shen<span class="chinese-name-note">沈榮風</span></td>
+                        <td><span class="room-number">2302</span></td>
+                        <td><span class="room-type">2-3樓湖畔套房(單房)<br>2人房/25坪</span></td>
+                        <td><span class="no-data">無</span></td>
+                        <td><span class="note">一大床</span></td>
+                    </tr>
+                    <tr style="background-color: #e1bee7;">
+                        <td>92</td>
+                        <td class="name-cell">沈昕樂</td>
+                        <td><span class="room-number">-</span></td>
+                        <td><span class="room-type">-</span></td>
+                        <td><span class="no-data">無</span></td>
+                        <td><span class="no-data">-</span></td>
+                    </tr>
+                    <tr style="background-color: #a8d5f2;">
+                        <td>93</td>
+                        <td class="name-cell">Alan<span class="chinese-name-note">詹凱雲</span></td>
+                        <td><span class="room-number">1512</span></td>
+                        <td><span class="room-type">5-7樓湖景客房<br>限住2人/12坪</span></td>
+                        <td><span class="no-data">無</span></td>
+                        <td><span class="note">一大床</span></td>
+                    </tr>
+                    <tr style="background-color: #a8d5f2;">
+                        <td>94</td>
+                        <td class="name-cell">陳虹君</td>
+                        <td><span class="room-number">-</span></td>
+                        <td><span class="room-type">-</span></td>
+                        <td><span class="no-data">無</span></td>
+                        <td><span class="no-data">-</span></td>
+                    </tr>
+                    <tr style="background-color: #b3e0dc;">
+                        <td>95</td>
+                        <td class="name-cell">Jonathan<span class="chinese-name-note">李霽</span></td>
+                        <td><span class="room-number">1103</span></td>
+                        <td><span class="room-type">1樓庭園套房(單房)<br>2人房/25坪</span></td>
+                        <td><span class="no-data">無</span></td>
+                        <td><span class="no-data">-</span></td>
+                    </tr>
+                    <tr style="background-color: #b3e0dc;">
+                        <td>96</td>
+                        <td class="name-cell">吳禮穎</td>
+                        <td><span class="room-number">-</span></td>
+                        <td><span class="room-type">-</span></td>
+                        <td><span class="no-data">無</span></td>
+                        <td><span class="no-data">-</span></td>
+                    </tr>
+                    <tr style="background-color: #c7f9cc;">
+                        <td>97</td>
+                        <td class="name-cell">Jerry<span class="chinese-name-note">林鴻文</span></td>
+                        <td><span class="room-number">2301</span></td>
+                        <td><span class="room-type">2-3樓湖畔套房(單房)<br>2人房/25坪</span></td>
+                        <td><span class="no-data">無</span></td>
+                        <td><span class="note">一大床</span></td>
+                    </tr>
+                    <tr style="background-color: #c7f9cc;">
+                        <td>98</td>
+                        <td class="name-cell">王禎穗</td>
+                        <td><span class="room-number">-</span></td>
+                        <td><span class="room-type">-</span></td>
+                        <td><span class="no-data">無</span></td>
+                        <td><span class="note">加被</span></td>
+                    </tr>
+                    <tr style="background-color: #c7f9cc;">
+                        <td>99</td>
+                        <td class="name-cell">林杰毅</td>
+                        <td><span class="room-number">-</span></td>
+                        <td><span class="room-type">-</span></td>
+                        <td><span class="no-data">無</span></td>
+                        <td><span class="no-data">-</span></td>
+                    </tr>
+                    <tr style="background-color: #ffe0a3;">
+                        <td>100</td>
+                        <td class="name-cell">Marlon<span class="chinese-name-note">丁思均</span></td>
+                        <td><span class="room-number">1116</span></td>
+                        <td><span class="room-type">1樓庭園套房(單房)<br>2人房/25坪</span></td>
+                        <td><span class="no-data">無</span></td>
+                        <td><span class="no-data">-</span></td>
+                    </tr>
+                    <tr style="background-color: #ffe0a3;">
+                        <td>101</td>
+                        <td class="name-cell">陳明珠</td>
+                        <td><span class="room-number">-</span></td>
+                        <td><span class="room-type">-</span></td>
+                        <td><span class="no-data">無</span></td>
+                        <td><span class="no-data">-</span></td>
+                    </tr>
+                    <tr style="background-color: #ffbcbd;">
+                        <td>102</td>
+                        <td class="name-cell">Min Kang<span class="chinese-name-note">林民康</span></td>
+                        <td><span class="room-number">1202</span></td>
+                        <td><span class="room-type">2-3樓湖畔客房<br>限住2人/12坪</span></td>
+                        <td><span class="no-data">無</span></td>
+                        <td><span class="no-data">-</span></td>
+                    </tr>
+                    <tr style="background-color: #ffbcbd;">
+                        <td>103</td>
+                        <td class="name-cell">黃士銓</td>
+                        <td><span class="room-number">-</span></td>
+                        <td><span class="room-type">-</span></td>
+                        <td><span class="no-data">無</span></td>
+                        <td><span class="no-data">-</span></td>
+                    </tr>
+                    <tr style="background-color: #d4a5f7;">
+                        <td>104</td>
+                        <td class="name-cell">萬懿瑩</td>
+                        <td><span class="room-number">1205</span></td>
+                        <td><span class="room-type">2-3樓湖畔客房<br>限住2人/12坪</span></td>
+                        <td><span class="no-data">無</span></td>
+                        <td><span class="note">兩小床</span></td>
+                    </tr>
+                    <tr style="background-color: #d4a5f7;">
+                        <td>105</td>
+                        <td class="name-cell">沈新凱</td>
+                        <td><span class="room-number">-</span></td>
+                        <td><span class="room-type">-</span></td>
+                        <td><span class="no-data">無</span></td>
+                        <td><span class="no-data">-</span></td>
+                    </tr>
+                    <tr style="background-color: #ffd3b6;">
+                        <td>106</td>
+                        <td class="name-cell">萬懿瑩</td>
+                        <td><span class="room-number">1205</span></td>
+                        <td><span class="room-type">2-3樓湖畔客房<br>限住2人/12坪</span></td>
+                        <td><span class="no-data">無</span></td>
+                        <td><span class="note">兩小床</span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="stats">
+            <div class="stat-item"><h3>總人數</h3><div class="number">106</div></div>
+            <div class="stat-item"><h3>已分配房間</h3><div class="number" id="assignedRooms">0</div></div>
+            <div class="stat-item"><h3>未分配</h3><div class="number" id="unassignedPeople">0</div></div>
+            <div class="stat-item"><h3>特殊餐食需求</h3><div class="number" id="specialMeals">0</div></div>
+        </div>
+    </div>
+
+    <script>
+        // 獲取元素
+        const searchInput = document.getElementById('searchInput');
+        const tableBody = document.getElementById('tableBody');
+        const rows = Array.from(tableBody.getElementsByTagName('tr'));
+
+        // 前向填充房號與分房類型
+        let lastRoom = '';
+        let lastRoomType = '';
+        rows.forEach(row => {
+            const roomCell = row.cells[2].querySelector('.room-number') || row.cells[2];
+            const typeCell = row.cells[3].querySelector('.room-type') || row.cells[3];
+            const roomText = roomCell.textContent.trim();
+
+            if (roomText && roomText !== '-' && roomText !== '') {
+                lastRoom = roomText;
+                lastRoomType = typeCell.innerHTML.trim();
+            } else if (lastRoom) {
+                roomCell.innerHTML = `<span class="room-number">${lastRoom}</span>`;
+                typeCell.innerHTML = `<span class="room-type">${lastRoomType.replace(/\n/g, '<br>')}</span>`;
+            }
+        });
+
+        // 搜尋功能
+        searchInput.addEventListener('input', function() {
+            const term = this.value.toLowerCase();
+            rows.forEach(row => {
+                const text = row.textContent.toLowerCase();
+                row.classList.toggle('hidden', !text.includes(term));
+            });
+        });
+
+        // 更新統計
+        function updateStats() {
+            let assigned = 0;
+            let special = 0;
+            rows.forEach(row => {
+                const room = row.cells[2].textContent.trim();
+                const meal = row.cells[4].textContent.trim();
+                if (room && room !== '-' && room !== '') assigned++;
+                if (meal.includes('不吃') || meal.includes('海鮮') || meal.includes('豬')) special++;
+            });
+            document.getElementById('assignedRooms').textContent = assigned;
+            document.getElementById('unassignedPeople').textContent = rows.length - assigned;
+            document.getElementById('specialMeals').textContent = special;
+        }
+
+        updateStats();
+
+        // 點擊高亮
+        rows.forEach(row => {
+            row.addEventListener('click', function() {
+                this.style.backgroundColor = '#fff3cd';
+                setTimeout(() => { this.style.backgroundColor = ''; }, 300);
+            });
+        });
+    </script>
+</body>
+</html>
+    
+  </body>
+  
+</html>
